@@ -1,4 +1,6 @@
 from transformers import pipeline
+from tqdm import tqdm
+import time
 import logging
 
 # Setup logging configuration
@@ -19,8 +21,15 @@ def analyse_audio_emotions(audio):
     logger.info("Pipeline object created.")
 
     logger.info("Starting emotion analysis...")
-    result = emotion_pipe(audio)
+    start_time = time.time()
+    results = []
+    chunk_size=16000
+    for i in tqdm(range(0, len(audio), chunk_size)):
+        chunk = audio[i:i + chunk_size]
+        result = emotion_pipe(chunk)
+        results.append(result)
+    end_time = time.time()
     logger.info("Emotion analysis completed.")
 
-    
+    logger.info(f"Emotion analysis tool {end_time - start_time} seconds")
     return result
