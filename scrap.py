@@ -1,5 +1,10 @@
 from bs4 import BeautifulSoup
 import json
+import logging
+
+# Setup logging configuration
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 
 def getmp3Url(r):
@@ -18,7 +23,8 @@ def getmp3Url(r):
 
     # Access the desired MP3 URL within the dictionary
     mp3_url = data["@graph"][0]["mainEntity"]["contentUrl"]
-    print(mp3_url)
+    
+    logger.info(f"Successfully retrieve MP3 url : {mp3_url}")
 
     return mp3_url
 
