@@ -10,7 +10,9 @@ from processAudio import process_mp3
 from IA_emotion_recognition import analyse_audio_emotions
 
 # Http request to the web page to scrap 
-response = requests.get("https://www.radiofrance.fr/franceculture/podcasts/le-pourquoi-du-comment-philo/comment-affronte-t-on-l-irreversible-9155230")
+# response = requests.get("https://www.radiofrance.fr/franceculture/podcasts/le-pourquoi-du-comment-philo/comment-affronte-t-on-l-irreversible-9155230")
+# response = requests.get("https://www.radiofrance.fr/franceinfo/podcasts/8h30-franceinfo/programme-du-nouveau-front-populaire-choix-du-futur-premier-ministre-le-8h30-franceinfo-de-fabien-roussel-du-mercredi-19-juin-2024-5742709")
+response = requests.get("https://www.radiofrance.fr/franceinter/podcasts/le-billet-de-matthieu-noel/le-billet-de-matthieu-noel-du-jeudi-20-juin-2024-3451556")
 
 
 def main():
